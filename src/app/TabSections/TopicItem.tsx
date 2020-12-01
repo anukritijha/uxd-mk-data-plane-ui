@@ -114,7 +114,7 @@ const TopicItem: React.FunctionComponent = ({topicName, setIsExpanded2, setConsu
             <PageSection variant={PageSectionVariants.light} className="pf-m-sticky-bottom">
               <ActionList>
                 <ActionListItem>
-                  <Button variant="primary">Save</Button>
+                  <Button variant="primary" component="a" href="/openshiftstreams">Save</Button>
                 </ActionListItem>
                 <ActionListItem>
                   <Button variant="secondary" onClick={() => setIsTopicItemEditable(false)}>Cancel</Button>
