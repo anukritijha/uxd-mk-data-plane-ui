@@ -295,8 +295,10 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Topic name"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Topic name</div>}
+                    bodyContent={<div>
+                      This is the unique identifier for this topic within this cluster. You'll need this to set up your producers and consumers, so make it something memorable.
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -324,8 +326,8 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Partitions"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Partitions</div>}
+                    bodyContent={<div>A partition is an ordered list of messages. One or more partitions make up a topic.</div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -344,8 +346,10 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Replicas"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Replicas</div>}
+                    bodyContent={<div>
+                      In order to improve availability, each topic can be replicated onto multiple brokers. If a following replica is keeping up with the partition leader, its replica is in-sync. Any follower with an in-sync replica can become the leader without losing any messages.
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -364,8 +368,8 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Minimum in-sync replicas"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Minimum in-sync replicas</div>}
+                    bodyContent={<div>Determines the reliability guarantee achievable for this topic. The minimum number of replicas that must acknowledge a write to satisfy a producer that requests acknowledgements from all replicas. (min.insync.replicas)</div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -384,8 +388,10 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Retention time"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Retention time</div>}
+                    bodyContent={<div>
+                      The length of time that messages are retained before they are deleted. If your messages are not read by a consumer within this time, they will be missed. (retention.ms)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -439,8 +445,9 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
               label="Maximum message size"
               labelIcon={
                 <Popover
-                  headerContent={<div>Test</div>}
-                  bodyContent={<div>Test</div>}
+                  headerContent={<div>Maximum message size</div>}
+                  bodyContent={<div>The maximum record batch size. (max.message.bytes)
+                    </div>}
                 >
                   <button
                     aria-label="More info for name field"
@@ -480,8 +487,9 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Message timestamp type"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Message timestamp type</div>}
+                    bodyContent={<div>Determines if the timestamp is made when the message is created or when the message is appended to the log. (message.timestamp.type)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -512,8 +520,9 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Maximum message timestamp difference"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Maximum message timestamp difference</div>}
+                    bodyContent={<div>The maximum difference allowed between the timestamp of the message leaving the producer and arriving at the broker. (message.timestamp.difference.max.ms)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -555,8 +564,10 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Compression type"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Compression type</div>}
+                    bodyContent={<div>
+                      Determines the final compression for the topic, or whether to retain the compression set by the producer. (compression.type)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -603,8 +614,10 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Cleanup policy"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Cleanup policy</div>}
+                    bodyContent={<div>
+                      Determines what happens to log segments beyond the retention window. (cleanup.policy)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -638,8 +651,8 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Retention size"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Retention size</div>}
+                    bodyContent={<div>The maximum total size of a partition's log segments before old log segments are deleted to free up space. (retention.bytes)</div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -678,11 +691,12 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
 
               <FormGroup
                 className="topics-wizard-content"
-                label="Log segment types"
+                label="Log segment size"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Log segment size</div>}
+                    bodyContent={<div>The size of the log segment files. Log processing such as deletion and compaction operates on log segments, so a larger setting gives fewer files but less frequent log processing. (segment.bytes)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -730,14 +744,39 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
             </TextContent>
 
             <Form>
-              <Checkbox label="Allow unclean leader election" aria-label="uncontrolled checkbox example" id="check-5" />
+              
+              <FormGroup
+                className="topics-wizard-content"
+                label="Unclean leader election"
+                labelIcon={
+                  <Popover
+                    headerContent={<div>Unclean leader election</div>}
+                    bodyContent={<div>
+                      Allows a replica which is not in-sync to become the leader of the partition. This is only done as a last resort and can lead to data loss. (unclean.leader.election.enable)
+                      </div>}
+                  >
+                    <button
+                      aria-label="Unclean leader election"
+                      onClick={e => e.preventDefault()}
+                      aria-describedby="simple-form-name"
+                      className="pf-c-form__group-label-help"
+                    >
+                      <HelpIcon noVerticalAlign />
+                    </button>
+                  </Popover>
+                }
+              >
+                <Checkbox label="Allow unclean leader election" aria-label="uncontrolled checkbox example" id="check-5" />
+              </FormGroup>
               <FormGroup
                 className="topics-wizard-content"
                 label="Follower replication throttled replicas"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Follower replication throttled replicas</div>}
+                    bodyContent={<div>
+                      A list of the replicas for which replication should be throttled on the follower side. Can be used to limit the network bandwidth consumed by replication. (follower.replication.throttled.replicas)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -760,8 +799,9 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Leader replication throttled replicas"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Leader replication throttled replicas</div>}
+                    bodyContent={<div>A list of the replicas for which replication should be throttled on the leader side. Can be used to limit the network bandwidth consumed by replication. (leader.replication.throttled.replicas)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -795,8 +835,10 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Delete retention"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Delete retention</div>}
+                    bodyContent={<div>
+                      Determines the time for which tombstone markers are retained if the topic is compacted. (delete.retention.ms)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -839,8 +881,9 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Minimum cleanable dirty ratio"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Minimum cleanable dirty ratio</div>}
+                    bodyContent={<div>Determines the frequency of compacting the log in terms of the proportion of duplicated keys allowed. Applies only to compacted topics. (min.cleanable.dirty.ratio)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -861,8 +904,9 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Minimum compaction lag time"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Minimum compaction lag time</div>}
+                    bodyContent={<div>The minimum time a message will remain uncompacted. Applies only to compacted topics. (min.compaction.lag.ms)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -906,8 +950,9 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Segment time"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Segment time</div>}
+                    bodyContent={<div>The period of time after which the current log segment is rolled even if it is not full. This permits log processing such as deletion and compaction to proceed for quiet topics. (segment.ms)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -951,8 +996,9 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Segment jitter time"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Segment jitter time</div>}
+                    bodyContent={<div>Controls a random delay to add to log segment rolling with the aim of preventing bursts of log segment rolling activity. (segment.jitter.ms)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -996,8 +1042,10 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="File delete delay"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>File delete delay</div>}
+                    bodyContent={<div>
+                      The delay before deleting a file from the filesystem. (file.delete.delay.ms)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -1035,7 +1083,29 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                   </FlexItem>
                 </Flex>
               </FormGroup>
-              <Checkbox label="Preallocation log segment files" aria-label="uncontrolled checkbox example" id="check-5" />
+              <FormGroup
+                className="topics-wizard-content"
+                label="Preallocate log segment files"
+                labelIcon={
+                  <Popover
+                    headerContent={<div>Preallocate log segment files</div>}
+                    bodyContent={<div>
+                        Determines whether to preallocate log segment files. (preallocate)
+                      </div>}
+                  >
+                    <button
+                      aria-label="Unclean leader election"
+                      onClick={e => e.preventDefault()}
+                      aria-describedby="simple-form-name"
+                      className="pf-c-form__group-label-help"
+                    >
+                      <HelpIcon noVerticalAlign />
+                    </button>
+                  </Popover>
+                }
+              >
+                <Checkbox label="Alow preallocation of log segment files" aria-label="uncontrolled checkbox example" id="check-6" />
+              </FormGroup>
             </Form>
 
             <TextContent>
@@ -1053,8 +1123,10 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Index interval size"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Index interval size</div>}
+                    bodyContent={<div>
+                      Determines the granularity of the offset index. (index.interval.bytes)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -1093,11 +1165,11 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
 
               <FormGroup
                 className="topics-wizard-content"
-                label="Segment interval size"
+                label="Segment index size"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Segment index size</div>}
+                    bodyContent={<div>The size of the index that maps offsets to file positions. (segment.index.bytes)</div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -1147,11 +1219,13 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
             <Form>
               <FormGroup
                 className="topics-wizard-content"
-                label="Flush internal messages"
+                label="Flush interval messages"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Flush interval messages</div>}
+                    bodyContent={<div>
+                      Determines the number of messages between flushing data to the log. Replication is a better way to ensure data is not lost when failures occur. (flush.messages)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
@@ -1195,8 +1269,10 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                 label="Flush interval time"
                 labelIcon={
                   <Popover
-                    headerContent={<div>Test</div>}
-                    bodyContent={<div>Test</div>}
+                    headerContent={<div>Flush interval time</div>}
+                    bodyContent={<div>
+                      Determines the interval in time between flushing data to the log. Replication is a better way to ensure data is not lost when failures occur. (flush.ms)
+                      </div>}
                   >
                     <button
                       aria-label="More info for name field"
