@@ -15,6 +15,7 @@ import {
   PageSectionVariants,
   Title,
   Tabs,
+  TabsComponent,
   Tab,
   TabContent,
   TabTitleText
@@ -68,7 +69,13 @@ const OpenShiftStreams: React.FunctionComponent = () => {
   }
 
   const mainTabs = (
-    <Tabs activeKey={activeTabKey} onSelect={handleTabClick} inset={{default: 'insetMd'}}>
+    <Tabs
+      activeKey={activeTabKey}
+      onSelect={handleTabClick}
+      inset={{default: 'insetMd'}}
+      aria-label="Local"
+      component={TabsComponent.nav}
+    >
       <Tab
         eventKey={0}
         title={<TabTitleText>Home</TabTitleText>}
@@ -98,7 +105,7 @@ const OpenShiftStreams: React.FunctionComponent = () => {
 
   const mainBreadcrumbs = (
     <Breadcrumb>
-      <BreadcrumbItem to="#">Red Hat OpenShift Streams for Apache Kafka</BreadcrumbItem>
+      <BreadcrumbItem to="/openshiftstreams">Red Hat OpenShift Streams for Apache Kafka</BreadcrumbItem>
       <BreadcrumbItem to="#" isActive>
         MK Cluster Instance
       </BreadcrumbItem>

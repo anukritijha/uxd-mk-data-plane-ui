@@ -54,8 +54,8 @@ const CreateTopicsWizard: React.FunctionComponent = ({ setIsCreateTopic }) => {
 
   const mainBreadcrumbs = (
     <Breadcrumb>
-      <BreadcrumbItem to="#">Red Hat OpenShift Streams for Apache Kafka</BreadcrumbItem>
-      <BreadcrumbItem to="#">MK Cluster Instance</BreadcrumbItem>
+      <BreadcrumbItem to="/openshiftstreams">Red Hat OpenShift Streams for Apache Kafka</BreadcrumbItem>
+      <BreadcrumbItem to="/openshiftstreams">MK Cluster Instance</BreadcrumbItem>
       <BreadcrumbItem to="#" isActive>
         Create topic
       </BreadcrumbItem>

@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {
+  ActionList,
+  ActionListItem,
   Breadcrumb,
   BreadcrumbItem,
   Button,
@@ -15,6 +17,7 @@ import {
   TabTitleText
 } from '@patternfly/react-core';
 import {TopicItemProperties} from './TopicItemProperties';
+import {TopicItemEditProperties} from './TopicItemEditProperties';
 import {TopicItemConsumerGroups} from './TopicItemConsumerGroups';
 import {ConsumerGroupsDrawer} from './ConsumerGroupsDrawer';
 
@@ -26,6 +29,7 @@ const TopicItem: React.FunctionComponent = ({topicName, setIsExpanded2, setConsu
   const contentRef3 = React.createRef();
   const [isExpanded, setIsExpanded] = useState(false);
   const drawerRef = React.createRef();
+  const [isTopicItemEditable, setIsTopicItemEditable] = useState(false);
 
   const onExpand = () => {
     drawerRef.current && drawerRef.current.focus()
@@ -38,7 +42,7 @@ const TopicItem: React.FunctionComponent = ({topicName, setIsExpanded2, setConsu
 
   const mainBreadcrumbs = (
     <Breadcrumb>
-      <BreadcrumbItem to="/openshiftstreams">OpenShift Streams</BreadcrumbItem>
+      <BreadcrumbItem to="/openshiftstreams">Red Hat OpenShift Streams for Apache Kafka</BreadcrumbItem>
       <BreadcrumbItem to="/openshiftstreams">
         MK Cluster Instance
       </BreadcrumbItem>
@@ -48,7 +52,7 @@ const TopicItem: React.FunctionComponent = ({topicName, setIsExpanded2, setConsu
     </Breadcrumb>
   )
 
-  const handleTabClick = (event, tabIndex) => {
+  const handleTabClick = (tabIndex) => {
     console.log('what is tabIndex  ' + tabIndex);
     setActiveTabKey(tabIndex);
   };
@@ -78,12 +82,9 @@ const TopicItem: React.FunctionComponent = ({topicName, setIsExpanded2, setConsu
 
   return (
     <>
-
-            
       <Drawer isExpanded={isExpanded} onExpand={onExpand}>
         <DrawerContent panelContent={ <ConsumerGroupsDrawer isTopics onCloseClick={onCloseClick} drawerRef={drawerRef} isExpanded={isExpanded} consumergroupID={consumergroupID} /> }>
         <DrawerContentBody>
-
       <section className="pf-c-page__main-breadcrumb">
         { mainBreadcrumbs }
       </section>
@@ -95,18 +96,32 @@ const TopicItem: React.FunctionComponent = ({topicName, setIsExpanded2, setConsu
       </PageSection>
 
         <TabContent eventKey={0} id="refTab1Section" ref={contentRef1} aria-label="Topics">
-
           <PageSection>
             <TopicItemConsumerGroups setIsExpanded={setIsExpanded} setConsumerGroupID={setConsumerGroupID} consumergroupID={consumergroupID}/>
           </PageSection>
-
-
         </TabContent>
-
         <TabContent eventKey={1} id="refTab2Section" ref={contentRef2} aria-label="Properties" hidden>
           <PageSection variant={PageSectionVariants.light}>
-            <TopicItemProperties/>
+            { isTopicItemEditable ? (
+              <TopicItemEditProperties/>
+            ):(
+              <TopicItemProperties
+                setIsTopicItemEditable={setIsTopicItemEditable}
+              />
+            )}
           </PageSection>
+          { isTopicItemEditable &&
+            <PageSection variant={PageSectionVariants.light} className="pf-m-sticky-bottom">
+              <ActionList>
+                <ActionListItem>
+                  <Button variant="primary">Save</Button>
+                </ActionListItem>
+                <ActionListItem>
+                  <Button variant="secondary" onClick={() => setIsTopicItemEditable(false)}>Cancel</Button>
+                </ActionListItem>
+              </ActionList>
+            </PageSection>
+          }
         </TabContent>
 
         <TabContent eventKey={2} id="refTab3Section" ref={contentRef3} aria-label="Messages" hidden>

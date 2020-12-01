@@ -5,6 +5,7 @@ import { DynamicImport } from '@app/DynamicImport';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { Dashboard } from '@app/Dashboard/Dashboard';
 import { OpenShiftStreams } from '@app/OpenShiftStreams/OpenShiftStreams';
+import { Topics } from '@app/TabSections/Topics';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
@@ -45,7 +46,7 @@ const routes: AppRouteConfig[] = [
     label: 'Red Hat OpenShift Streams for Apache Kafka',
     path: '/openshiftstreams',
     title: 'Red Hat OpenShift Streams for Apache Kafka',
-  },
+  }
 ];
 
 // a custom hook for sending focus to the primary content container

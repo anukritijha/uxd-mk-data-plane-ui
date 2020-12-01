@@ -25,7 +25,7 @@ import { JumpLinks } from '../CustomComponents/JumpLinks';
 import { JumpLinksItem } from '../CustomComponents/JumpLinksItem';
 import HelpIcon from '@patternfly/react-icons/dist/js/icons/help-icon';
 
-const TopicItemProperties: React.FunctionComponent = ({topicName}) => {
+const TopicItemProperties: React.FunctionComponent = ({topicName, setIsTopicItemEditable}) => {
 
   const [activeTabKey, setActiveTabKey] = useState(1);
   const contentRef1 = React.createRef();
@@ -35,7 +35,7 @@ const TopicItemProperties: React.FunctionComponent = ({topicName}) => {
 
   const mainBreadcrumbs = (
     <Breadcrumb>
-      <BreadcrumbItem to="#">OpenShift Streams</BreadcrumbItem>
+      <BreadcrumbItem to="#">Red Hat OpenShift Streams for Apache Kafka</BreadcrumbItem>
       <BreadcrumbItem to="#" isActive>
         MK Cluster Instance
       </BreadcrumbItem>
@@ -105,7 +105,7 @@ const TopicItemProperties: React.FunctionComponent = ({topicName}) => {
             </JumpLinksItem>
           </JumpLinks>
         </GridItem>
-        <GridItem span={9}>
+        <GridItem span={6}>
           <div className="topics-wizard-content">
           <PageGroup hasOverflowScroll  id="scrollable-element">
             <PageSection>
@@ -693,6 +693,9 @@ const TopicItemProperties: React.FunctionComponent = ({topicName}) => {
               </PageSection>
             </PageGroup>
           </div>
+        </GridItem>
+        <GridItem span={3}>
+          <Button variant="primary" onClick={() => setIsTopicItemEditable(true)}>Edit Properties</Button>
         </GridItem>
       </Grid>
     </>
