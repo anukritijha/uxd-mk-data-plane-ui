@@ -79,6 +79,12 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
   const [value14, setValue14] = useState("");
   const [isOpen14, setIsOpen14] = useState(false);
   const [selected14, setSelected14] = useState(null);
+  const [isOpen15, setIsOpen15] = useState(false);
+  const [selected15, setSelected15] = useState(null);
+  const [isOpen16, setIsOpen16] = useState(false);
+  const [selected16, setSelected16] = useState(null);
+  const [isOpen17, setIsOpen17] = useState(false);
+  const [selected17, setSelected17] = useState(null);
 
   const onToggle1 = isOpen1 => {
     setIsOpen1(isOpen1);
@@ -209,6 +215,33 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
   const onSelect14 = (event, selection, isPlaceholder) => {
     setSelected14(selection);
     setIsOpen14(false);
+  }
+
+  const onToggle15 = isOpen15 => {
+    setIsOpen15(isOpen15);
+  }
+
+  const onSelect15 = (event, selection, isPlaceholder) => {
+    setSelected15(selection);
+    setIsOpen15(false);
+  }
+
+  const onToggle16 = isOpen16 => {
+    setIsOpen16(isOpen16);
+  }
+
+  const onSelect16 = (event, selection, isPlaceholder) => {
+    setSelected16(selection);
+    setIsOpen16(false);
+  }
+
+  const onToggle17 = isOpen17 => {
+    setIsOpen17(isOpen17);
+  }
+
+  const onSelect17 = (event, selection, isPlaceholder) => {
+    setSelected17(selection);
+    setIsOpen17(false);
   }
 
   return (
@@ -444,7 +477,7 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
               </Flex>
             </FormGroup>
               <FormGroup
-                label="Message timestamp"
+                label="Message timestamp type"
                 labelIcon={
                   <Popover
                     headerContent={<div>Test</div>}
@@ -472,6 +505,85 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
                   >
                     <SelectOption key={0} value="CreateTime" isPlaceholder/>
                     <SelectOption key={1} value="LogAppendTime" />
+                  </Select>
+              </FormGroup>
+              <FormGroup
+                className="topics-wizard-content"
+                label="Maximum message timestamp difference"
+                labelIcon={
+                  <Popover
+                    headerContent={<div>Test</div>}
+                    bodyContent={<div>Test</div>}
+                  >
+                    <button
+                      aria-label="More info for name field"
+                      onClick={e => e.preventDefault()}
+                      aria-describedby="simple-form-name"
+                      className="pf-c-form__group-label-help"
+                    >
+                      <HelpIcon noVerticalAlign />
+                    </button>
+                  </Popover>
+                }
+              >
+                <Flex>
+                  <FlexItem grow={{ default: 'grow' }}>
+                    <Touchspin value={0} maxWidth />
+                  </FlexItem>
+                  <FlexItem>
+                    <Select
+                      variant={SelectVariant.single}
+                      aria-label="Select Input"
+                      onToggle={onToggle17}
+                      onSelect={onSelect17}
+                      selections={selected17}
+                      isOpen={isOpen17}
+                      // aria-labelledby={titleId}
+                    >
+                      <SelectOption key={0} value="milliseconds" isPlaceholder/>
+                      <SelectOption key={1} value="seconds" />
+                      <SelectOption key={2} value="minutes" />
+                      <SelectOption key={3} value="hours" />
+                      <SelectOption key={4} value="days" />
+                      <SelectOption key={5} value="weeks" />
+                      <SelectOption key={6} value="months" />
+                    </Select>
+                  </FlexItem>
+                </Flex>
+              </FormGroup>
+              <FormGroup
+                label="Compression type"
+                labelIcon={
+                  <Popover
+                    headerContent={<div>Test</div>}
+                    bodyContent={<div>Test</div>}
+                  >
+                    <button
+                      aria-label="More info for name field"
+                      onClick={e => e.preventDefault()}
+                      aria-describedby="simple-form-name"
+                      className="pf-c-form__group-label-help"
+                    >
+                      <HelpIcon noVerticalAlign />
+                    </button>
+                  </Popover>
+                }
+              >
+                <Select
+                    variant={SelectVariant.single}
+                    aria-label="Select Input"
+                    onToggle={onToggle15}
+                    onSelect={onSelect15}
+                    selections={selected15}
+                    isOpen={isOpen15}
+                    // aria-labelledby={titleId}
+                  >
+                    <SelectOption key={0} value="Producer" isPlaceholder/>
+                    <SelectOption key={1} value="Gzip" />
+                    <SelectOption key={2} value="Snappy" />
+                    <SelectOption key={3} value="LZ4" />
+                    <SelectOption key={4} value="Zstandard" />
+                    <SelectOption key={5} value="Uncompressed" />
                   </Select>
               </FormGroup>
             </Form>
@@ -523,7 +635,7 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
 
               <FormGroup
                 className="topics-wizard-content"
-                label="Retention bytes"
+                label="Retention size"
                 labelIcon={
                   <Popover
                     headerContent={<div>Test</div>}
@@ -678,6 +790,50 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
             </TextContent>
 
             <Form>
+            <FormGroup
+                className="topics-wizard-content"
+                label="Delete retention"
+                labelIcon={
+                  <Popover
+                    headerContent={<div>Test</div>}
+                    bodyContent={<div>Test</div>}
+                  >
+                    <button
+                      aria-label="More info for name field"
+                      onClick={e => e.preventDefault()}
+                      aria-describedby="simple-form-name"
+                      className="pf-c-form__group-label-help"
+                    >
+                      <HelpIcon noVerticalAlign />
+                    </button>
+                  </Popover>
+                }
+              >
+                <Flex>
+                  <FlexItem grow={{ default: 'grow' }}>
+                    <Touchspin value={0} maxWidth />
+                  </FlexItem>
+                  <FlexItem>
+                    <Select
+                      variant={SelectVariant.single}
+                      aria-label="Select Input"
+                      onToggle={onToggle16}
+                      onSelect={onSelect16}
+                      selections={selected16}
+                      isOpen={isOpen16}
+                      // aria-labelledby={titleId}
+                    >
+                      <SelectOption key={0} value="milliseconds" isPlaceholder/>
+                      <SelectOption key={1} value="seconds" />
+                      <SelectOption key={2} value="minutes" />
+                      <SelectOption key={3} value="hours" />
+                      <SelectOption key={4} value="days" />
+                      <SelectOption key={5} value="weeks" />
+                      <SelectOption key={6} value="months" />
+                    </Select>
+                  </FlexItem>
+                </Flex>
+              </FormGroup>
               <FormGroup
                 className="topics-wizard-content"
                 label="Minimum cleanable dirty ratio"
@@ -894,7 +1050,7 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
             <Form>
               <FormGroup
                 className="topics-wizard-content"
-                label="Index interval bytes"
+                label="Index interval size"
                 labelIcon={
                   <Popover
                     headerContent={<div>Test</div>}
@@ -937,7 +1093,7 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
 
               <FormGroup
                 className="topics-wizard-content"
-                label="Segment interval bytes"
+                label="Segment interval size"
                 labelIcon={
                   <Popover
                     headerContent={<div>Test</div>}
@@ -991,7 +1147,7 @@ const CreateTopicsWizardMoreOptions: React.FunctionComponent = ({setIsCreateTopi
             <Form>
               <FormGroup
                 className="topics-wizard-content"
-                label="Index interval bytes"
+                label="Flush internal messages"
                 labelIcon={
                   <Popover
                     headerContent={<div>Test</div>}
